@@ -8,13 +8,14 @@ import java.awt.event.MouseEvent;
  */
 public class ML extends MouseAdapter {
 
-    public static ML INSTANCE;
-
+    private static ML INSTANCE;
     private boolean pressed = false;
     private boolean dragged = false;
     private float x = -1, y = -1;
     private float dx = -1, dy = -1;
     private int button = -1;
+
+    private ML(){}
 
     public static synchronized ML getInstance() {
         if(ML.INSTANCE == null) {

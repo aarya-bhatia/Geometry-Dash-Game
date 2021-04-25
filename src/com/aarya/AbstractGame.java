@@ -1,11 +1,20 @@
 package com.aarya;
 
+import com.aarya.engine.LevelEditorScene;
+import com.aarya.engine.Scene;
+
 import java.awt.*;
 
 public abstract class AbstractGame {
 
-    public abstract void update(GameContainer game, double dt);
+    protected final ML mouse = ML.getInstance();
+    protected final KL keys = KL.getInstance();
+    protected Scene scene = LevelEditorScene.getInstance();
 
-    public abstract void render(GameContainer game, Graphics2D g2d);
+    public abstract void update(double dt);
+    public abstract void render(Graphics2D g2d);
 
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
 }

@@ -19,6 +19,9 @@ public class GameContainer implements Runnable {
         thread = new Thread(this);
     }
 
+    public void init() {
+    }
+
     public synchronized void start() {
         running = true;
         thread.start();
@@ -41,7 +44,7 @@ public class GameContainer implements Runnable {
                 double now = Time.getTime();
                 double dt = now - prevTime;
                 prevTime = now;
-                game.update(this, dt);
+                game.update(dt);
             }
             catch (Exception e) {
                 e.printStackTrace();
