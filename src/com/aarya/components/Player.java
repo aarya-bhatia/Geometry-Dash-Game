@@ -5,6 +5,7 @@ import com.aarya.engine.Component;
 
 import java.awt.Graphics2D;
 import java.awt.Color;
+import java.awt.geom.AffineTransform;
 
 public class Player extends Component {
 
@@ -36,19 +37,15 @@ public class Player extends Component {
 
     @Override
     public void render(Graphics2D g) {
-        g.drawImage(layerOne.image,
-                (int)gameObject.transform.position.x,
-                (int)gameObject.transform.position.y,
-               width,height,null);
+        AffineTransform transform = new AffineTransform();
+        transform.setToIdentity();
+        transform.translate(gameObject.transform.position.x,gameObject.transform.position.y);
+        transform.rotate(gameObject.transform.rotation, width/2, height/2);
+        transform.scale(gameObject.transform.scale.x, gameObject.transform.scale.y);
 
-        g.drawImage(layerTwo.image,
-                (int)gameObject.transform.position.x,
-                (int)gameObject.transform.position.y,
-                width,height,null);
+        g.drawImage(layerOne.image,transform,null);
+        g.drawImage(layerTwo.image,transform,null);
+        g.drawImage(layerThree.image,transform,null);
 
-        g.drawImage(layerThree.image,
-                (int)gameObject.transform.position.x,
-                (int)gameObject.transform.position.y,
-                width,height,null);
     }
 }

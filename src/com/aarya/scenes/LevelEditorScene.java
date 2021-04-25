@@ -46,11 +46,16 @@ public class LevelEditorScene extends Scene {
                 Color.BLUE);
 
         player.addComponent(playerComp);
+
+        player.transform.rotation = 45;
+        player.transform.scale.x = 2;
+        player.transform.scale.y = 2;
     }
 
     @Override
     public void update(double dt) {
         player.update(dt);
+        player.transform.rotation += dt * 1;
     }
 
     @Override
