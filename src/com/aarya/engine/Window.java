@@ -1,10 +1,6 @@
 package com.aarya.engine;
 
-import com.aarya.K;
-
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class Window extends JFrame {
 

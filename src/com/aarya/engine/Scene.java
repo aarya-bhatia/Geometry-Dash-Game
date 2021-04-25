@@ -8,6 +8,7 @@ public abstract class Scene {
 
     public Scene(String name) {
         this.name = name;
+        init();
     }
 
     public String toString() {

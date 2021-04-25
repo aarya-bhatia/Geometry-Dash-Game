@@ -1,6 +1,5 @@
-package com.aarya;
+package com.aarya.engine;
 
-import com.aarya.engine.Window;
 import com.aarya.util.Time;
 
 public class GameContainer implements Runnable {

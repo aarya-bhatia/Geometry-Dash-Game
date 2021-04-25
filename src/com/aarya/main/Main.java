@@ -1,4 +1,7 @@
-package com.aarya;
+package com.aarya.main;
+
+import com.aarya.engine.GameContainer;
+import com.aarya.engine.GameManager;
 
 /**
  * Main class

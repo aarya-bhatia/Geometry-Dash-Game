@@ -1,6 +1,4 @@
-package com.aarya;
-
-import com.aarya.engine.Window;
+package com.aarya.engine;
 
 import java.awt.*;
 

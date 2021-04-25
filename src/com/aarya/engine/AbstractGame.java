@@ -1,7 +1,4 @@
-package com.aarya;
-
-import com.aarya.engine.LevelEditorScene;
-import com.aarya.engine.Scene;
+package com.aarya.engine;
 
 import java.awt.*;
 
