@@ -1,5 +1,8 @@
 package com.aarya.engine;
 
+import com.aarya.data.Transform;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +10,7 @@ public class GameObject {
 
     private List<Component> components;
     private String name;
-    private Transform transform;
+    public Transform transform;
 
     public GameObject(String name, Transform transform) {
         this.name = name;
@@ -38,5 +41,12 @@ public class GameObject {
 
     public void addComponent(Component c) {
         components.add(c);
+        c.setGameObject(this);
+    }
+
+    public void render(Graphics2D g) {
+        for(Component c: components) {
+            c.render(g);
+        }
     }
 }

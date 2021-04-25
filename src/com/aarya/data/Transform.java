@@ -1,10 +1,10 @@
-package com.aarya.engine;
+package com.aarya.data;
 
 import com.aarya.util.Vector2;
 
 public class Transform {
 
-    Vector2 position;
+    public Vector2 position;
     Vector2 scale;
     Vector2 rotation;
 

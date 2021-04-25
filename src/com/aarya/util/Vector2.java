@@ -2,7 +2,8 @@ package com.aarya.util;
 
 public class Vector2 {
 
-    private float x,y;
+    public float x;
+    public float y;
 
     public Vector2(float x, float y) {
         this.x = x;
