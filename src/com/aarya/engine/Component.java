@@ -8,10 +8,8 @@ public abstract class Component<T> {
     }
 
     public void update(double dt) {
-        return;
     }
 
     public void render(Graphics2D g) {
-        return;
     }
 }

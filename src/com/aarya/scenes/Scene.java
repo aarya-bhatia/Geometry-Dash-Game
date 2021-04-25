@@ -1,4 +1,4 @@
-package com.aarya.engine;
+package com.aarya.scenes;
 
 import java.awt.*;
 
