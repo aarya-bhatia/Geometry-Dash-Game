@@ -1,13 +1,10 @@
 package com.aarya.engine;
 
 import com.aarya.K;
-import com.aarya.util.Time;
 
 import javax.swing.*;
 
-public class Window extends JFrame implements Runnable {
-
-    private volatile boolean running = false;
+public class Window extends JFrame {
 
     private static class Helper {
         private static final Window INSTANCE = new Window();
@@ -22,42 +19,8 @@ public class Window extends JFrame implements Runnable {
         setLocationRelativeTo(null);
     }
 
-    public void init() {
-
-    }
-
     public static Window getWindow() {
         return Helper.INSTANCE;
     }
 
-    public synchronized void start() {
-        running = true;
-    }
-
-    public synchronized void stop() {
-        running = false;
-    }
-
-    @Override
-    public void run() {
-        double lastFrameTime = 0;
-
-        while(running) {
-            try {
-                double time = Time.getTime();
-                double deltaTime = time - lastFrameTime;
-
-                lastFrameTime = time;
-
-                update(deltaTime);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void update(double dt) {
-        System.out.println(dt);
-    }
 }
