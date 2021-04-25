@@ -12,9 +12,7 @@ public abstract class AbstractGame {
     protected Scene scene = LevelEditorScene.getInstance();
 
     public abstract void update(double dt);
-    public abstract void render(Graphics2D g2d);
+    public abstract void render(Graphics g);
 
-    public void setScene(Scene scene) {
-        this.scene = scene;
-    }
+    public void setScene(Scene scene) { this.scene = scene; }
 }

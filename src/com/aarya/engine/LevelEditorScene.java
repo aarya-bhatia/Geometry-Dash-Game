@@ -1,5 +1,7 @@
 package com.aarya.engine;
 
+import com.aarya.K;
+
 import java.awt.*;
 
 public class LevelEditorScene extends Scene {
@@ -28,6 +30,7 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void render(Graphics2D g) {
-
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(0, 0, K.SCREEN_WIDTH, K.SCREEN_HEIGHT);
     }
 }

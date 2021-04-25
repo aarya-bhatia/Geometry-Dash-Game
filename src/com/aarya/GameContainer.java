@@ -45,6 +45,7 @@ public class GameContainer implements Runnable {
                 double dt = now - prevTime;
                 prevTime = now;
                 game.update(dt);
+                game.render(window.getGraphics());
             }
             catch (Exception e) {
                 e.printStackTrace();
