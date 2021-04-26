@@ -41,7 +41,7 @@ public class GameObject {
 
     public void addComponent(Component c) {
         components.add(c);
-        c.setGameObject(this);
+        c.gameObject = this;
     }
 
     public void render(Graphics2D g) {

@@ -1,7 +1,5 @@
 package com.aarya.engine;
 
-import com.aarya.input.KL;
-import com.aarya.input.ML;
 import com.aarya.util.Time;
 
 public class GameContainer implements Runnable {
@@ -9,18 +7,14 @@ public class GameContainer implements Runnable {
     private volatile boolean running = false;
     private final Thread thread;
     private final Window window;
-    private final AbstractGame game;
 
-    public GameContainer(AbstractGame game) {
-        this.game = game;
+    public GameContainer() {
         window = Window.getWindow();
-        window.addMouseListener(ML.getInstance());
-        window.addMouseMotionListener(ML.getInstance());
-        window.addKeyListener(KL.getInstance());
         thread = new Thread(this);
     }
 
     public void init() {
+        window.changeScene(1);
     }
 
     public synchronized void start() {
@@ -39,20 +33,18 @@ public class GameContainer implements Runnable {
     @Override
     public void run() {
         double prevTime = 0;
-
         while(running) {
             try {
                 double now = Time.getTime();
                 double dt = now - prevTime;
                 prevTime = now;
-                game.update(dt);
-                game.render(window.getGraphics());
+                window.update(dt);
+                window.render();
             }
             catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
         stop();
     }
 }

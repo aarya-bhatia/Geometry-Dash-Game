@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class Scene {
 
     String name;
-    Camera camera;
+    public Camera camera;
     List<GameObject> gameObjects;
     Renderer renderer;
 
