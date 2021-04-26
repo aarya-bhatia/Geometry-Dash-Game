@@ -11,7 +11,6 @@ import java.awt.*;
 public class LevelEditorScene extends Scene {
 
     public GameObject player;
-    public GameObject ground;
 
     public LevelEditorScene(String name) {
         super(name);
@@ -19,6 +18,32 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void init() {
+        player = new GameObject("Test", new Transform(new Vector2(500, 350)));
+
+        SpriteSheet layerOne = new SpriteSheet("assets/player/layerOne.png",
+                42, 42, 2, 13, 13 * 5);
+
+        SpriteSheet layerTwo = new SpriteSheet("assets/player/layerTwo.png",
+                42, 42, 2, 13, 13 * 5);
+
+        SpriteSheet layerThree = new SpriteSheet("assets/player/layerThree.png",
+                42, 42, 2, 13, 13 * 5);
+
+        Player playerComp = new Player(layerOne.sprites.get(0),
+                layerTwo.sprites.get(0),
+                layerThree.sprites.get(0),
+                new Color(124, 19, 19),
+                new Color(231, 86, 108));
+
+        player.addComponent(playerComp);
+
+        GameObject ground = new GameObject("Ground",
+                new Transform(new Vector2(0, K.GROUND_Y)));
+
+        ground.addComponent(new Ground());
+
+        addGameObject(player);
+        addGameObject(ground);
     }
 
     @Override

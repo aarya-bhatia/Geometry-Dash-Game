@@ -33,4 +33,10 @@ public abstract class Scene {
     public abstract void update(double dt);
 
     public abstract void render(Graphics2D g);
+
+    public void addGameObject(GameObject g) {
+        gameObjects.add(g);
+        renderer.submit(g);
+    }
+
 }

@@ -11,7 +11,6 @@ import java.awt.*;
 public class LevelScene extends Scene {
 
     public GameObject player;
-    public GameObject ground;
 
     public LevelScene(String name) {
         super(name);
@@ -33,8 +32,8 @@ public class LevelScene extends Scene {
         Player playerComp = new Player(layerOne.sprites.get(0),
                 layerTwo.sprites.get(0),
                 layerThree.sprites.get(0),
-                new Color(41, 79, 172),
-                new Color(91, 86, 231));
+                new Color(215, 108, 108),
+                new Color(231, 86, 108));
 
         player.addComponent(playerComp);
         player.addComponent(new RigidBody(
@@ -45,17 +44,13 @@ public class LevelScene extends Scene {
                 K.PLAYER_WIDTH, K.PLAYER_HEIGHT
         ));
 
-        ground = new GameObject("Ground",
+        GameObject ground = new GameObject("Ground",
                 new Transform(new Vector2(0, K.GROUND_Y)));
 
         ground.addComponent(new Ground());
 
-        renderer.submit(player);
-        renderer.submit(ground);
-
-        gameObjects.add(player);
-        gameObjects.add(ground);
-
+        addGameObject(player);
+        addGameObject(ground);
     }
 
     @Override
@@ -81,7 +76,7 @@ public class LevelScene extends Scene {
 
     @Override
     public void render(Graphics2D g) {
-        g.setColor(new Color(241, 70, 70));
+        g.setColor(new Color(203, 203, 203));
         g.fillRect(0, 0, K.SCREEN_WIDTH, K.SCREEN_HEIGHT);
         renderer.render(g);
     }

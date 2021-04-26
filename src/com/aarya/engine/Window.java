@@ -17,14 +17,22 @@ public class Window extends JFrame {
 
     public Scene scene;
 
+    public boolean isInEditor = true;
+
     private static class Helper {
         private static final Window INSTANCE = new Window();
     }
 
     public void changeScene(int id) {
         switch(id) {
-            case 0 -> this.scene = new LevelEditorScene("Level Editor Scene");
-            case 1 -> this.scene = new LevelScene("Level Scene");
+            case 0 -> {
+                isInEditor = true;
+                this.scene = new LevelEditorScene("Level Editor Scene");
+            }
+            case 1 -> {
+                isInEditor = false;
+                this.scene = new LevelScene("Level Scene");
+            }
             default -> {
                 System.err.println("Scene does not exist!");
                 System.exit(-1);
