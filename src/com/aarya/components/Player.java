@@ -11,7 +11,6 @@ public class Player extends Component {
 
     Sprite layerOne, layerTwo, layerThree;
     final int threshold = 200;
-    public final int width = K.PLAYER_WIDTH, height = K.PLAYER_HEIGHT;
 
     public Player(Sprite layerOne, Sprite layerTwo, Sprite layerThree, Color colorOne, Color colorTwo) {
         this.layerOne = layerOne;
@@ -40,7 +39,9 @@ public class Player extends Component {
         AffineTransform transform = new AffineTransform();
         transform.setToIdentity();
         transform.translate(gameObject.transform.position.x,gameObject.transform.position.y);
-        transform.rotate(gameObject.transform.rotation, width/2, height/2);
+        transform.rotate(gameObject.transform.rotation,
+                (K.PLAYER_WIDTH * gameObject.transform.scale.x)/2,
+                (K.PLAYER_HEIGHT * gameObject.transform.scale.y) /2);
         transform.scale(gameObject.transform.scale.x, gameObject.transform.scale.y);
 
         g.drawImage(layerOne.image,transform,null);
