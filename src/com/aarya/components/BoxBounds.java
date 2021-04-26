@@ -4,14 +4,11 @@ import com.aarya.engine.Component;
 
 public class BoxBounds extends Component {
 
-    private String name;
+    public float width, height;
 
-    public BoxBounds(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
+    public BoxBounds(float width, float height) {
+        this.width = width;
+        this.height = height;
     }
 
     @Override

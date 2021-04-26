@@ -49,4 +49,10 @@ public class Player extends Component {
         g.drawImage(layerThree.image,transform,null);
 
     }
+
+    @Override
+    public void update(double dt) {
+
+    }
+
 }
